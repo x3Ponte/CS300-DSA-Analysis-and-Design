@@ -1,2 +1,23 @@
-# CS300-DSA-Analysis-and-Design
-Runtime analysis of vectors, hash tables, and binary search trees, plus a course advising program built with a BST.
+# CS 300 Portfolio Data Structures and Algorithms
+
+## Reflection
+
+**What was the problem you were solving in the projects for this course?**
+
+The main problem I was working on throughout this course was building an advising assistance program for ABC University's Computer Science department. The advisors here needed a tool that could load course data from a file then let them look up any individual course to see its title and prerequisites and finally print out a full sorted list of all courses in alphanumeric order. The biggest challenge for me was figuring out which data structure vector, hash table, or binary search tree would handle those tasks most efficiently given how the advisors would actually use the program day to day.
+
+**How did you approach the problem? Consider why data structures are important to understand.**
+
+I approached the problem by first writing the pseudocode for all three data structures across the milestone assignments, then performing a Big O runtime analysis on each one to compare their performance for the specific operations the advisors needed. Understanding data structures turned out to be critical here because the choice of structure directly impacts how fast the program runs. For example, a vector gave me an O(n) search time which slows down as the catalog grows and on the other hand a BST gives you O(log n) search and prints in sorted order naturally through an in order traversal. Without understanding these trade offs I would have just picked whatever was easiest to code for me which is not the same thing as what is best for the user. In the end I ended up recommending and implementing the BST because the advisors load data once but search and print all day so the operations that happen most frequently needed to be the fastest.
+
+**How did you overcome any roadblocks you encountered while going through the activities or project?**
+
+One of the bigger roadblocks I hit was in the hash table programming assignment where the starter file was missing an `#include <algorithm>` header which caused a compile error that took me a minute to track down. Another challenge was implementing the `removeNode` function for the BST which has four separate cases to handle leaf nodes, nodes with one child on either side, and nodes with two children where you have to find the in order successor. I worked through it step by step by breaking each case down individually and following the pseudocode comments that were provided in the starter code. I also initially recommended the hash table for Project One but after getting feedback about worst-case performance and the advisors actual usage patterns, I revised my analysis and switched to the BST which was a good learning experience in considering real world requirements over theoretical averages.
+
+**How has your work on this project expanded your approach to designing software and developing programs?**
+
+This course really changed how I think about designing software. Before this class I would have just picked a data structure based on what I was most comfortable coding, but now I start by thinking about how the end user is actually going to interact with the program and what operations they will perform most frequently so I think I came a far way in just 8 weeks. Writing pseudocode before jumping into code was also something I had not done much before, and I found that it saved me a lot of time debugging later because the logic was already mapped out. The runtime analysis portion taught me to think critically about scalability which is something that works fine for 8 courses might completely fall apart for 800 and that matters when you are building software for real people.
+
+**How has your work on this project evolved the way you write programs that are maintainable, readable, and adaptable?**
+
+Working through three different data structures for the same problem really drove home the importance of modular code design. I structured my programs with separate functions for loading, searching, and printing so that swapping out the underlying data structure didn't end up requiring to rewrite the entire program. I also got much better at writing meaningful in line comments and not just commenting every single line but explaining the why behind key decisions which I think makes the code a lot easier to come back to later and useful for a codebase thats being looked at by multiple people. Using consistent naming conventions and keeping each method focused on a single responsibility now they feel like second nature to me. Going forward I plan to carry these habits into every project I work on.
